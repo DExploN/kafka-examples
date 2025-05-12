@@ -17,7 +17,18 @@ services:
       - kafka
     networks:
       - kafka-network
-
+  golang:
+    image: ${PROJECT_NAME:-kafka_examples}_golang
+    build:
+      context: .
+      dockerfile: ./docker/golang/Dockerfile
+    container_name: ${PROJECT_NAME:-kafka_examples}_golang
+    volumes:
+      - ./golang:/app
+    depends_on:
+      - kafka
+    networks:
+      - kafka-network
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
     container_name: ${PROJECT_NAME:-kafka_examples}_zookeeper

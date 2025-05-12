@@ -30,6 +30,8 @@ $consumer->subscribe([$topic]);
 $logger->info("Начинаем слушать топик {$topic}");
 $logger->info("Для выхода нажмите Ctrl+C");
 
+
+
 // Читаем сообщения
 while (true) {
     $message = $consumer->consume(10000);
@@ -47,9 +49,9 @@ while (true) {
         case RD_KAFKA_RESP_ERR__TIMED_OUT:
             $logger->debug("Тайм-аут, продолжаем...");
             break;
-            
         default:
             $logger->error("Ошибка: {$message->errstr()}");
             break;
+
     }
 }

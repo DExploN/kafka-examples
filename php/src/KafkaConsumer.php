@@ -95,4 +95,6 @@ class KafkaConsumer
         $this->running = false;
         $this->logger->info("Остановка консьюмера");
     }
+
+
 }
