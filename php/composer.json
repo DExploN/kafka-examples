@@ -5,7 +5,9 @@
     "require": {
         "php": "^8.1",
         "ext-rdkafka": "*",
-        "monolog/monolog": "^3.0"
+        "monolog/monolog": "^3.9",
+        "flix-tech/avro-serde-php": "^3.0",
+        "flix-tech/confluent-schema-registry-api": "^8.1"
     },
     "autoload": {
         "psr-4": {

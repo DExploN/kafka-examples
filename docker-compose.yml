@@ -54,7 +54,22 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
     networks:
       - kafka-network
-      
+
+  # Schema Registry для работы с Avro схемами
+  schema-registry:
+    image: confluentinc/cp-schema-registry:latest
+    container_name: ${PROJECT_NAME:-kafka_examples}_schema_registry
+    depends_on:
+      - kafka
+    ports:
+      - "8081:8081"
+    environment:
+      SCHEMA_REGISTRY_HOST_NAME: schema-registry
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: kafka:29092
+      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
+    networks:
+      - kafka-network
+
   # Веб-интерфейс для Kafka
   kafka-ui:
     image: tchiotludo/akhq:latest

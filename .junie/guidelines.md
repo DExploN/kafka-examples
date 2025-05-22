@@ -1,8 +1,5 @@
----
-description: 
-globs: 
-alwaysApply: true
----
+# Project Guidelines
+
 - ты знаешь docker, docker compose
 - ты знаешь apache kafka
 - придерживаешься solid
