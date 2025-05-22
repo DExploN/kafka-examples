@@ -62,6 +62,9 @@ try {
                     $logger->info("ID: {$decodedMessage['id']}");
                     $logger->info("Содержимое: {$decodedMessage['content']}");
                     $logger->info("Временная метка: " . date('Y-m-d H:i:s', $decodedMessage['timestamp']));
+                    // Проверяем, является ли заголовок null
+                    $titleValue = $decodedMessage['title'] === null ? 'NULL (заголовок отсутствует)' : $decodedMessage['title'];
+                    $logger->info("Заголовок: {$titleValue}");
                     $logger->debug("Топик: {$message->topic_name}, Раздел: {$message->partition}, Смещение: {$message->offset}, Ключ: " . ($message->key ?: 'NULL'));
                 } catch (Exception $e) {
                     $logger->error("Ошибка десериализации: " . $e->getMessage());

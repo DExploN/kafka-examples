@@ -63,17 +63,20 @@ try {
         [
             'id' => 101,
             'content' => 'Сообщение от second-producer: ' . date('Y-m-d H:i:s'),
-            'timestamp' => time()
+            'timestamp' => time(),
+            'title' => null // Первое сообщение без заголовка
         ],
         [
             'id' => 102,
             'content' => 'Еще одно сообщение от second-producer: ' . date('Y-m-d H:i:s'),
-            'timestamp' => time()
+            'timestamp' => time(),
+            'title' => 'Заголовок от second-producer'
         ],
         [
             'id' => 103,
             'content' => 'Последнее сообщение от second-producer: ' . date('Y-m-d H:i:s'),
-            'timestamp' => time()
+            'timestamp' => time(),
+            'title' => null // Последнее сообщение тоже без заголовка
         ]
     ];
 

@@ -27,7 +27,8 @@ $avroSchemaJson = <<<SCHEMA
     "fields": [
         {"name": "id", "type": "int"},
         {"name": "content", "type": "string"},
-        {"name": "timestamp", "type": "long"}
+        {"name": "timestamp", "type": "long"},
+        {"name": "title", "type": ["null", "string"], "default": null}
     ]
 }
 SCHEMA;
@@ -66,17 +67,20 @@ try {
         [
             'id' => 1,
             'content' => 'Первое сообщение с Avro: ' . date('Y-m-d H:i:s'),
-            'timestamp' => time()
+            'timestamp' => time(),
+            'title' => 'Заголовок для первого сообщения'
         ],
         [
             'id' => 2,
             'content' => 'Второе сообщение с Avro: ' . date('Y-m-d H:i:s'),
-            'timestamp' => time()
+            'timestamp' => time(),
+            'title' => null // Явно указываем null для демонстрации nullable поля
         ],
         [
             'id' => 3,
             'content' => 'Третье сообщение с Avro: ' . date('Y-m-d H:i:s'),
-            'timestamp' => time()
+            'timestamp' => time(),
+            'title' => 'Еще один заголовок'
         ]
     ];
 
